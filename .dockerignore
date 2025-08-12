@@ -1,0 +1,49 @@
+# Dockerfile
+Dockerfile
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# NPM
+node_modules
+npm-debug.log*
+
+# Testing
+/tests/
+/test-results/
+coverage
+
+# Build outputs
+.next/
+out/
+build/
+
+# Environment variables
+.env*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Documentation and scripts
+README.md
+CLAUDE.md
+scripts/
+supabase/
+
+# Miscellaneous
+*.log
+*.tsbuildinfo

@@ -43,3 +43,9 @@ next-env.d.ts
 # tests
 /tests/
 /test-results/
+
+# venv
+/venv/
+
+# production environment
+.env.production
