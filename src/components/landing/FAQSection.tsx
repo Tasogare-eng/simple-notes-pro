@@ -7,36 +7,36 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What happens when I reach 3 notes on the free plan?",
-      answer: "When you create your 3rd note, you'll see a notification that you've reached the free plan limit. You can still edit your existing notes, but to create more notes, you'll need to upgrade to the Pro plan for ¥500/month."
+      question: "無料プランで3つのメモに達したらどうなりますか？",
+      answer: "3つ目のメモを作成すると、無料プランの上限に達したことを知らせる通知が表示されます。既存のメモは編集できますが、さらにメモを作成するには月額¥500のProプランにアップグレードする必要があります。"
     },
     {
-      question: "Can I cancel my Pro subscription anytime?",
-      answer: "Yes! You can cancel your Pro subscription at any time through your billing dashboard. When you cancel, you'll continue to have Pro access until the end of your current billing period, then your account will revert to the free plan."
+      question: "Proサブスクリプションはいつでもキャンセルできますか？",
+      answer: "はい！請求ダッシュボードからいつでもProサブスクリプションをキャンセルできます。キャンセルした場合、現在の請求期間の終了までProアクセスが継続され、その後アカウントは無料プランに戻ります。"
     },
     {
-      question: "Is my data secure?",
-      answer: "Absolutely. We use bank-level security with encrypted data storage and transmission. Your notes are private and only accessible by you. We never sell or share your personal data."
+      question: "データは安全ですか？",
+      answer: "もちろんです。銀行レベルのセキュリティと暗号化されたデータストレージ・送信を使用しています。あなたのメモはプライベートで、あなただけがアクセスできます。個人データを絶対に販売や共有しません。"
     },
     {
-      question: "Do I need a credit card to start?",
-      answer: "No credit card required! You can sign up and start using Simple Notes Pro immediately with our free plan. Only upgrade to Pro when you're ready for unlimited notes."
+      question: "始めるのにクレジットカードは必要ですか？",
+      answer: "クレジットカードは不要です！無料プランですぐにSimple Notes Proにサインアップして使用を開始できます。無制限のメモが必要になったらProにアップグレードしてください。"
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards (Visa, Mastercard, American Express) and digital wallets through our secure payment processor, Stripe. All payments are processed securely and we never store your payment information."
+      question: "どのような支払い方法を受け付けていますか？",
+      answer: "セキュアな決済プロセッサーStripeを通じて、主要なクレジットカード（Visa、Mastercard、American Express）およびデジタルウォレットを受け付けています。すべての決済は安全に処理され、支払い情報を保存することはありません。"
     },
     {
-      question: "Can I access my notes from multiple devices?",
-      answer: "Yes! Your notes are stored securely in the cloud and sync across all your devices. Access your notes from your computer, tablet, or phone - your data is always up to date."
+      question: "複数のデバイスからメモにアクセスできますか？",
+      answer: "はい！メモはクラウドに安全に保存され、すべてのデバイスで同期されます。コンピューター、タブレット、スマートフォンからメモにアクセス - データは常に最新の状態です。"
     },
     {
-      question: "What if I want to export my notes?",
-      answer: "You own your data. While we don't currently have a bulk export feature, you can copy and paste your notes to save them locally. We're working on adding export functionality in a future update."
+      question: "メモをエクスポートしたい場合はどうすればいいですか？",
+      answer: "データはあなたの所有物です。現在は一括エクスポート機能はありませんが、メモをコピー・ペーストしてローカルに保存できます。将来のアップデートでエクスポート機能の追加を作業中です。"
     },
     {
-      question: "Do you offer refunds?",
-      answer: "Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with Simple Notes Pro, contact us within 30 days of your purchase for a full refund."
+      question: "返金はありますか？",
+      answer: "はい！30日間の返金保証を提供しています。Simple Notes Proに完全に満足いただけない場合は、購入から30日以内にお連絡いただければ全額返金いたします。"
     }
   ]
 
@@ -45,16 +45,16 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
+            よくある質問
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to know about Simple Notes Pro
+            Simple Notes Proについて知っておくべきこと
           </p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg">
+            <div key={index} className="border border-gray-200 rounded-lg" data-testid="faq-item">
               <button
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -72,7 +72,7 @@ export default function FAQSection() {
                 </svg>
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-4">
+                <div className="px-6 pb-4" data-testid="faq-answer">
                   <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
@@ -82,13 +82,13 @@ export default function FAQSection() {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
-            Still have questions?
+            他にご質問はありませんか？
           </p>
           <a
             href="mailto:support@simplenotespro.com"
             className="text-blue-600 hover:text-blue-700 font-medium"
           >
-            Contact our support team →
+            サポートチームに連絡 →
           </a>
         </div>
       </div>

@@ -31,17 +31,17 @@ export default function SignUpForm() {
     <div className="w-full max-w-md space-y-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-          Create your account
+          アカウント作成
         </h1>
         <p className="mt-2 text-sm text-gray-600">
-          Start organizing your notes today
+          今日からメモの整理を始めましょう
         </p>
       </div>
 
       <form action={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email address
+            メールアドレス
           </label>
           <input
             id="email"
@@ -54,14 +54,14 @@ export default function SignUpForm() {
               "placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
               "disabled:bg-gray-50 disabled:text-gray-500"
             )}
-            placeholder="Enter your email"
+            placeholder="メールアドレスを入力"
             disabled={isLoading}
           />
         </div>
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-            Password
+            パスワード
           </label>
           <input
             id="password"
@@ -74,7 +74,7 @@ export default function SignUpForm() {
               "placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
               "disabled:bg-gray-50 disabled:text-gray-500"
             )}
-            placeholder="Create a password (min. 6 characters)"
+            placeholder="パスワードを作成（最低6文字）"
             disabled={isLoading}
             minLength={6}
           />
@@ -90,14 +90,13 @@ export default function SignUpForm() {
             disabled={isLoading}
           />
           <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-            I agree to the{' '}
+            {' '}
             <a href="/terms" className="text-blue-600 hover:text-blue-500">
-              Terms of Service
-            </a>{' '}
-            and{' '}
+              利用規約
+            </a>および{' '}
             <a href="/privacy" className="text-blue-600 hover:text-blue-500">
-              Privacy Policy
-            </a>
+              プライバシーポリシー
+            </a>に同意します
           </label>
         </div>
 
@@ -129,18 +128,18 @@ export default function SignUpForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Creating account...
+              アカウント作成中...
             </>
           ) : (
-            'Create account'
+            'アカウント作成'
           )}
         </button>
       </form>
 
       <div className="text-center text-sm">
-        <span className="text-gray-600">Already have an account?</span>{' '}
+        <span className="text-gray-600">すでにアカウントをお持ちですか？</span>{' '}
         <a href="/auth/signin" className="font-medium text-blue-600 hover:text-blue-500">
-          Sign in
+          ログイン
         </a>
       </div>
     </div>

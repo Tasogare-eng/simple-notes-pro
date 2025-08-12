@@ -13,8 +13,8 @@ export default function Footer() {
               <div className="text-2xl font-bold">Simple Notes Pro</div>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              The easiest way to capture, organize, and access your thoughts. 
-              Start free and upgrade when you need unlimited notes.
+              思考をキャプチャ、整理、アクセスする最も簡単な方法。<br />
+              無料で始めて、無制限メモが必要になったらアップグレード。
             </p>
             <div className="flex space-x-4">
               <a 
@@ -42,27 +42,27 @@ export default function Footer() {
           {/* Product Links */}
           <div>
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
-              Product
+              プロダクト
             </h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/#features" className="text-gray-400 hover:text-white transition-colors">
-                  Features
+機能
                 </Link>
               </li>
               <li>
                 <Link href="/#pricing" className="text-gray-400 hover:text-white transition-colors">
-                  Pricing
+料金
                 </Link>
               </li>
               <li>
                 <Link href="/auth/signup" className="text-gray-400 hover:text-white transition-colors">
-                  Sign Up
+サインアップ
                 </Link>
               </li>
               <li>
                 <Link href="/auth/signin" className="text-gray-400 hover:text-white transition-colors">
-                  Sign In
+ログイン
                 </Link>
               </li>
             </ul>
@@ -71,7 +71,7 @@ export default function Footer() {
           {/* Support Links */}
           <div>
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">
-              Support
+              サポート
             </h3>
             <ul className="space-y-4">
               <li>
@@ -79,7 +79,7 @@ export default function Footer() {
                   href="mailto:support@simplenotespro.com" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Help Center
+                  ヘルプセンター
                 </a>
               </li>
               <li>
@@ -87,12 +87,12 @@ export default function Footer() {
                   href="mailto:support@simplenotespro.com" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Contact Support
+                  サポートに連絡
                 </a>
               </li>
               <li>
                 <Link href="/#faq" className="text-gray-400 hover:text-white transition-colors">
-                  FAQ
+                  よくある質問
                 </Link>
               </li>
               <li>
@@ -100,7 +100,7 @@ export default function Footer() {
                   href="https://status.simplenotespro.com" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Status
+                  サービス状況
                 </a>
               </li>
             </ul>
@@ -117,19 +117,19 @@ export default function Footer() {
                 href="/privacy" 
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Privacy Policy
+                プライバシーポリシー
               </a>
               <a 
                 href="/terms" 
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Terms of Service
+                利用規約
               </a>
               <a 
                 href="/cookies" 
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
-                Cookie Policy
+                クッキーポリシー
               </a>
             </div>
           </div>

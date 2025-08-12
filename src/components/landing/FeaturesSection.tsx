@@ -2,33 +2,33 @@ export default function FeaturesSection() {
   const features = [
     {
       icon: '📝',
-      title: 'Easy Note Creation',
-      description: 'Create and edit notes with our simple, intuitive interface. No clutter, just pure focus on your thoughts.'
+      title: '簡単なメモ作成',
+      description: 'シンプルで直感的なインターフェースでメモを作成・編集。余計な機能はなく、あなたの思考に集中できます。'
     },
     {
       icon: '☁️',
-      title: 'Cloud Sync',
-      description: 'Your notes are securely stored in the cloud and accessible from any device, anywhere.'
+      title: 'クラウド同期',
+      description: 'メモは安全にクラウドに保存され、どのデバイスからでもアクセス可能です。'
     },
     {
       icon: '🔒',
-      title: 'Secure & Private',
-      description: 'Bank-level security with end-to-end encryption. Your notes are private and protected.'
+      title: 'セキュア＆プライベート',
+      description: '銀行レベルのセキュリティとエンドツーエンド暗号化。あなたのメモは安全に保護されます。'
     },
     {
       icon: '⚡',
-      title: 'Lightning Fast',
-      description: 'Instant search, quick loading, and responsive interface. Your productivity, supercharged.'
+      title: '高速動作',
+      description: '瞬間検索、高速読み込み、レスポンシブなインターフェース。生産性を最大化します。'
     },
     {
       icon: '🎨',
-      title: 'Clean Design',
-      description: 'Beautiful, minimalist design that helps you focus on what matters - your ideas.'
+      title: 'クリーンなデザイン',
+      description: '美しく、ミニマルなデザインで重要なこと - あなたのアイデアに集中できます。'
     },
     {
       icon: '💎',
-      title: 'Pro Features',
-      description: 'Upgrade for unlimited notes, priority support, and advanced features as we grow.'
+      title: 'プロ機能',
+      description: '無制限のメモ、優先サポート、先進機能へのアップグレードが可能です。'
     }
   ]
 
@@ -37,10 +37,10 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Everything you need to stay organized
+            主な機能
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Simple Notes Pro gives you all the tools you need to capture, organize, and access your thoughts effortlessly.
+            Simple Notes Proは、思考を簡単にキャプチャ、整理、アクセスするために必要なすべてのツールを提供します。
           </p>
         </div>
 
@@ -54,74 +54,6 @@ export default function FeaturesSection() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8 lg:p-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Start with 3 free notes, upgrade when you need more
-            </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Perfect for trying out Simple Notes Pro. When you&apos;re ready for unlimited notes and premium features, 
-              upgrade to Pro for just ¥500/month.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="bg-white rounded-lg p-6 shadow-sm border">
-                <div className="text-lg font-semibold text-gray-900 mb-2">Free Plan</div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">¥0</div>
-                <div className="text-sm text-gray-500 mb-4">Forever</div>
-                <ul className="text-sm text-gray-600 space-y-2">
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Up to 3 notes
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Cloud storage
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Email support
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-blue-600 text-white rounded-lg p-6 shadow-sm relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white text-xs font-medium px-3 py-1 rounded-full">
-                    Most Popular
-                  </span>
-                </div>
-                <div className="text-lg font-semibold mb-2">Pro Plan</div>
-                <div className="text-3xl font-bold mb-2">¥500</div>
-                <div className="text-sm opacity-90 mb-4">per month</div>
-                <ul className="text-sm space-y-2">
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-blue-200 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Unlimited notes
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-blue-200 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Priority support
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-4 h-4 text-blue-200 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    Advanced features
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

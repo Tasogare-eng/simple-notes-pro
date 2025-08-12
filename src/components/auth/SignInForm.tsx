@@ -39,17 +39,17 @@ export default function SignInForm() {
     <div className="w-full max-w-md space-y-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-          Sign in to your account
+          ログイン
         </h1>
         <p className="mt-2 text-sm text-gray-600">
-          Welcome back! Access your notes.
+          おかえりなさい！メモにアクセスしましょう。
         </p>
       </div>
 
       <form action={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-            Email address
+            メールアドレス
           </label>
           <input
             id="email"
@@ -62,14 +62,14 @@ export default function SignInForm() {
               "placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
               "disabled:bg-gray-50 disabled:text-gray-500"
             )}
-            placeholder="Enter your email"
+            placeholder="メールアドレスを入力"
             disabled={isLoading}
           />
         </div>
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-            Password
+            パスワード
           </label>
           <input
             id="password"
@@ -82,7 +82,7 @@ export default function SignInForm() {
               "placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
               "disabled:bg-gray-50 disabled:text-gray-500"
             )}
-            placeholder="Enter your password"
+            placeholder="パスワードを入力"
             disabled={isLoading}
           />
         </div>
@@ -108,10 +108,10 @@ export default function SignInForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Signing in...
+              ログイン中...
             </>
           ) : (
-            'Sign in'
+            'ログイン'
           )}
         </button>
       </form>
@@ -119,14 +119,14 @@ export default function SignInForm() {
       <div className="space-y-4">
         <div className="text-center text-sm">
           <a href="/auth/forgot-password" className="text-blue-600 hover:text-blue-500">
-            Forgot your password?
+            パスワードをお忘れですか？
           </a>
         </div>
         
         <div className="text-center text-sm">
-          <span className="text-gray-600">Don&apos;t have an account?</span>{' '}
+          <span className="text-gray-600">アカウントをお持ちでないですか？</span>{' '}
           <a href="/auth/signup" className="font-medium text-blue-600 hover:text-blue-500">
-            Sign up
+            サインアップ
           </a>
         </div>
       </div>
