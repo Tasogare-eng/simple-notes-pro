@@ -45,7 +45,7 @@ export default function SyncSubscriptionButton() {
         Subscription Status Issue?
       </h4>
       <p className="text-xs text-yellow-700 mb-3">
-        If you've completed payment but your plan hasn't updated, click the button below to sync your subscription status.
+        If you&apos;ve completed payment but your plan hasn&apos;t updated, click the button below to sync your subscription status.
       </p>
       
       {message && (

@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getAuthenticatedUser } from '@/lib/utils/auth'
 import { getUserProfile } from '@/lib/queries/profiles'
 import { syncCustomerSubscriptions } from '@/lib/stripe/webhookHandlers'
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     console.log('Manual subscription sync requested')
     
