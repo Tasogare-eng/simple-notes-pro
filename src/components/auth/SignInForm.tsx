@@ -4,7 +4,14 @@ import { useState } from 'react'
 import { signIn } from '@/app/auth/actions'
 import { cn } from '@/lib/utils/cn'
 import { useSearchParams } from 'next/navigation'
-import { isRedirectError } from 'next/dist/client/components/redirect'
+// Helper function to detect redirect errors
+function isRedirectError(error: unknown): boolean {
+  return !!(error && 
+           typeof error === 'object' && 
+           'digest' in error && 
+           typeof (error as { digest?: string }).digest === 'string' &&
+           (error as { digest: string }).digest.includes('NEXT_REDIRECT'))
+}
 
 export default function SignInForm() {
   const [isLoading, setIsLoading] = useState(false)

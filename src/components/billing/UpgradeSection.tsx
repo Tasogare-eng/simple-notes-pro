@@ -42,7 +42,7 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
       
       // Check if this is a redirect error
       if (error && typeof error === 'object' && 'digest' in error) {
-        console.log('Error has digest:', (error as any).digest)
+        console.log('Error has digest:', (error as { digest?: string }).digest)
       }
       
       setError(`An unexpected error occurred: ${error instanceof Error ? error.message : 'Unknown error'}`)
