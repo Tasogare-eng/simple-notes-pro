@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { signIn } from '@/app/auth/actions'
 import { cn } from '@/lib/utils/cn'
 import { useSearchParams } from 'next/navigation'
+import SocialSignInButtons from './SocialSignInButtons'
 // Helper function to detect redirect errors
 function isRedirectError(error: unknown): boolean {
   return !!(error && 
@@ -133,6 +134,9 @@ export default function SignInForm() {
           )}
         </button>
       </form>
+
+      {/* Social Sign In */}
+      <SocialSignInButtons />
 
       <div className="space-y-4">
         <div className="text-center text-sm">

@@ -3,6 +3,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
+import type { Provider } from '@supabase/supabase-js'
 
 const signUpSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -96,4 +97,26 @@ export async function signOut() {
   }
 
   redirect('/')
+}
+
+export async function signInWithProvider(provider: Provider) {
+  const supabase = await createClient()
+  
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+    },
+  })
+
+  if (error) {
+    console.error(`${provider} OAuth error:`, error.message)
+    redirect(`/auth/signin?error=${encodeURIComponent(error.message)}`)
+  }
+
+  if (data.url) {
+    redirect(data.url)
+  }
+
+  redirect('/auth/signin?error=OAuth+initialization+failed')
 }

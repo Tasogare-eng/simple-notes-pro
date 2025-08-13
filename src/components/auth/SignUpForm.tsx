@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { signUp } from '@/app/auth/actions'
 import { cn } from '@/lib/utils/cn'
+import SocialSignInButtons from './SocialSignInButtons'
 
 export default function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false)
@@ -135,6 +136,9 @@ export default function SignUpForm() {
           )}
         </button>
       </form>
+
+      {/* Social Sign In */}
+      <SocialSignInButtons />
 
       <div className="text-center text-sm">
         <span className="text-gray-600">すでにアカウントをお持ちですか？</span>{' '}
