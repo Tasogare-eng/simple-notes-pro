@@ -13,21 +13,41 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
   const [error, setError] = useState<string | null>(null)
 
   async function handleUpgrade() {
+    console.log('handleUpgrade called')
     setIsLoading(true)
     setError(null)
 
     try {
+      console.log('Calling initiateCheckout...')
       const result = await initiateCheckout()
+      console.log('initiateCheckout result:', result)
       
       if (result?.error) {
+        console.log('Error from initiateCheckout:', result.error)
         setError(result.error)
       } else if (result?.url) {
+        console.log('Redirecting to Stripe URL:', result.url)
         // Redirect to Stripe Checkout
         window.location.href = result.url
+      } else {
+        console.log('No error and no URL in result:', result)
+        setError('No checkout URL received')
       }
-    } catch {
-      setError('An unexpected error occurred')
+    } catch (error) {
+      console.error('Exception in handleUpgrade:', error)
+      console.error('Error type:', typeof error)
+      console.error('Error constructor:', error?.constructor?.name)
+      console.error('Error message:', error instanceof Error ? error.message : 'Unknown error')
+      console.error('Error stack:', error instanceof Error ? error.stack : 'No stack')
+      
+      // Check if this is a redirect error
+      if (error && typeof error === 'object' && 'digest' in error) {
+        console.log('Error has digest:', (error as any).digest)
+      }
+      
+      setError(`An unexpected error occurred: ${error instanceof Error ? error.message : 'Unknown error'}`)
     } finally {
+      console.log('handleUpgrade finished')
       setIsLoading(false)
     }
   }

@@ -78,8 +78,20 @@ export async function initiateCheckout() {
     console.error('Checkout error details:', {
       message: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
+      errorType: typeof error,
+      errorConstructor: error?.constructor?.name,
       error
     })
+    
+    // Check if this might be a redirect error that shouldn't be happening
+    if (error && typeof error === 'object' && 'digest' in error && 
+        typeof (error as any).digest === 'string' && 
+        (error as any).digest.includes('NEXT_REDIRECT')) {
+      console.error('UNEXPECTED: NEXT_REDIRECT error in billing action - this should not happen!')
+      console.error('Digest:', (error as any).digest)
+      return { error: 'Internal redirect error - please check server logs' }
+    }
+    
     return { error: `Failed to initiate checkout: ${error instanceof Error ? error.message : 'Unknown error'}` }
   }
 }
