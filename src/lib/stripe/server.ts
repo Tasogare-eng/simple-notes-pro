@@ -38,26 +38,48 @@ export async function createCheckoutSession(
   successUrl: string,
   cancelUrl: string
 ) {
-  const session = await stripe.checkout.sessions.create({
-    customer: customerId,
-    mode: 'subscription',
-    payment_method_types: ['card'],
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
-    success_url: successUrl,
-    cancel_url: cancelUrl,
-    subscription_data: {
-      metadata: {
-        customerId,
-      },
-    },
+  console.log('Creating Stripe checkout session with params:', {
+    customerId,
+    priceId,
+    successUrl,
+    cancelUrl
   })
 
-  return session
+  try {
+    const session = await stripe.checkout.sessions.create({
+      customer: customerId,
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      subscription_data: {
+        metadata: {
+          customerId,
+        },
+      },
+    })
+
+    console.log('Stripe checkout session created successfully:', {
+      id: session.id,
+      url: session.url,
+      customer: session.customer
+    })
+
+    return session
+  } catch (error) {
+    console.error('Stripe checkout session creation failed:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      customerId,
+      priceId
+    })
+    throw error
+  }
 }
 
 export async function createPortalSession(customerId: string, returnUrl: string) {
