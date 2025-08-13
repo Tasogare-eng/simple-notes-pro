@@ -6,6 +6,7 @@ import PlanStatus from '@/components/billing/PlanStatus'
 import UpgradeSection from '@/components/billing/UpgradeSection'
 import SubscriptionManagement from '@/components/billing/SubscriptionManagement'
 import UsageMeter from '@/components/billing/UsageMeter'
+import SyncSubscriptionButton from '@/components/billing/SyncSubscriptionButton'
 
 export default async function BillingPage() {
   const user = await getAuthenticatedUser()
@@ -78,6 +79,9 @@ export default async function BillingPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Sync Subscription Button (for debugging) */}
+            <SyncSubscriptionButton />
+
             {/* Usage Meter */}
             <UsageMeter noteCount={noteCount} plan={profile.plan} />
 
@@ -100,12 +104,12 @@ export default async function BillingPage() {
                   ➕ Create New Note
                 </Link>
                 {isPro ? (
-                  <button
+                  <a
+                    href="mailto:support@simplenotespro.com"
                     className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-                    onClick={() => window.open('mailto:support@simplenotespro.com')}
                   >
                     💬 Contact Support
-                  </button>
+                  </a>
                 ) : (
                   <Link
                     href="/billing"
