@@ -21,8 +21,10 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
       
       if (result?.error) {
         setError(result.error)
+      } else if (result?.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = result.url
       }
-      // If successful, the action will redirect to Stripe Checkout
     } catch {
       setError('An unexpected error occurred')
     } finally {

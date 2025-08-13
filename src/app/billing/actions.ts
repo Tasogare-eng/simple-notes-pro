@@ -1,6 +1,5 @@
 'use server'
 
-import { redirect } from 'next/navigation'
 import { getAuthenticatedUser } from '@/lib/utils/auth'
 import { getUserProfile, setStripeCustomerId } from '@/lib/queries/profiles'
 import { createOrRetrieveCustomer, createCheckoutSession, createPortalSession } from '@/lib/stripe/server'
@@ -70,7 +69,7 @@ export async function initiateCheckout() {
     console.log('Checkout session created:', { id: session.id, url: session.url })
 
     if (session.url) {
-      redirect(session.url)
+      return { url: session.url }
     } else {
       console.error('No checkout URL in session:', session)
       return { error: 'No checkout URL received' }
@@ -107,7 +106,7 @@ export async function openCustomerPortal() {
     )
 
     if (session.url) {
-      redirect(session.url)
+      return { url: session.url }
     } else {
       return { error: 'No portal URL received' }
     }

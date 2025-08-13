@@ -53,9 +53,12 @@ export async function signIn(formData: FormData) {
   const password = formData.get('password') as string
   const redirectTo = formData.get('redirectTo') as string | null
 
+  console.log('SignIn action called for:', email, 'redirectTo:', redirectTo)
+
   // Validate input
   const result = signInSchema.safeParse({ email, password })
   if (!result.success) {
+    console.log('SignIn validation failed:', result.error.issues[0].message)
     return {
       error: result.error.issues[0].message,
     }
@@ -63,17 +66,20 @@ export async function signIn(formData: FormData) {
 
   const supabase = await createClient()
 
+  console.log('Attempting Supabase signIn...')
   const { error } = await supabase.auth.signInWithPassword({
     email,
     password,
   })
 
   if (error) {
+    console.log('Supabase signIn error:', error.message)
     return {
       error: error.message,
     }
   }
 
+  console.log('SignIn successful, redirecting to:', redirectTo || '/app')
   // Redirect to intended page or default to app
   redirect(redirectTo || '/app')
 }

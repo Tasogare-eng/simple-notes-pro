@@ -21,8 +21,10 @@ export default function SubscriptionManagement({ profile }: SubscriptionManageme
       
       if (result?.error) {
         setError(result.error)
+      } else if (result?.url) {
+        // Redirect to Stripe Customer Portal
+        window.location.href = result.url
       }
-      // If successful, the action will redirect to Stripe Customer Portal
     } catch {
       setError('An unexpected error occurred')
     } finally {

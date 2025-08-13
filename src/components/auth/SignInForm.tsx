@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { signIn } from '@/app/auth/actions'
 import { cn } from '@/lib/utils/cn'
 import { useSearchParams } from 'next/navigation'
+import { isRedirectError } from 'next/dist/client/components/redirect'
 
 export default function SignInForm() {
   const [isLoading, setIsLoading] = useState(false)
@@ -28,7 +29,17 @@ export default function SignInForm() {
         setError(result.error)
       }
       // If successful, the server action will redirect
-    } catch {
+      // No need to handle success case here as redirect will occur
+    } catch (error) {
+      // Check if this is a redirect error (which is expected on success)
+      if (isRedirectError(error)) {
+        // This is a redirect, which means login was successful
+        // Re-throw to allow the redirect to proceed
+        throw error
+      }
+      
+      // Only show error for actual errors, not redirects
+      console.error('SignIn error:', error)
       setError('An unexpected error occurred')
     } finally {
       setIsLoading(false)
