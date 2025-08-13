@@ -46,10 +46,10 @@ export default function NoteLimitBanner({ noteCount, plan, hasReachedLimit }: No
                 : 'text-blue-800'
           }`}>
             {isLimit 
-              ? 'Note limit reached'
+              ? 'メモの上限に達しました'
               : isWarning 
-                ? 'Almost at your note limit'
-                : 'Free Plan Limitation'
+                ? 'メモの上限が近づいています'
+                : '無料プランの制限'
             }
           </h3>
           <div className={`mt-1 text-sm ${
@@ -61,10 +61,10 @@ export default function NoteLimitBanner({ noteCount, plan, hasReachedLimit }: No
           }`}>
             <p>
               {isLimit 
-                ? `You have used all 3 notes in your Free plan. Upgrade to Pro for unlimited notes.`
+                ? `無料プランの3件のメモをすべて使用しました。無制限のメモを作成するにはプロにアップグレードしてください。`
                 : isWarning 
-                  ? `You have ${remainingNotes} note remaining in your Free plan. Upgrade to Pro for unlimited notes.`
-                  : `You can create ${remainingNotes} more notes in your Free plan.`
+                  ? `無料プランではあと${remainingNotes}件のメモしか作成できません。無制限のメモを作成するにはプロにアップグレードしてください。`
+                  : `無料プランではあと${remainingNotes}件のメモを作成できます。`
               }
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function NoteLimitBanner({ noteCount, plan, hasReachedLimit }: No
                       : 'bg-blue-100 text-blue-800 hover:bg-blue-200 focus:ring-blue-500'
                 }`}
               >
-                Upgrade to Pro - ¥500/month
+プロにアップグレード - 月額¥500
               </Link>
             </div>
           </div>

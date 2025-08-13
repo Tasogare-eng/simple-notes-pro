@@ -51,9 +51,9 @@ export default async function BillingPage() {
                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                Back to Notes
+メモ一覧に戻る
               </Link>
-              <h1 className="text-xl font-semibold text-gray-900">Billing & Subscription</h1>
+              <h1 className="text-xl font-semibold text-gray-900">お支払い・サブスクリプション</h1>
             </div>
             <div className="text-sm text-gray-600">
               {user.email}
@@ -88,34 +88,34 @@ export default async function BillingPage() {
             {/* Quick Actions */}
             <div className="bg-white shadow rounded-lg p-6">
               <h3 className="text-lg font-medium text-gray-900 mb-4">
-                Quick Actions
+                クイックアクション
               </h3>
               <div className="space-y-3">
                 <Link
                   href="/app"
                   className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
                 >
-                  📝 Go to Notes
+                  📝 メモ一覧
                 </Link>
                 <Link
                   href="/app/notes/new"
                   className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
                 >
-                  ➕ Create New Note
+                  ➕ 新しいメモを作成
                 </Link>
                 {isPro ? (
                   <a
                     href="mailto:support@simplenotespro.com"
                     className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
                   >
-                    💬 Contact Support
+                    💬 サポートに連絡
                   </a>
                 ) : (
                   <Link
                     href="/billing"
                     className="block w-full text-left px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md font-medium"
                   >
-                    ✨ Upgrade to Pro
+                    ✨ プロにアップグレード
                   </Link>
                 )}
               </div>
@@ -124,30 +124,30 @@ export default async function BillingPage() {
             {/* Help & Support */}
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-lg font-medium text-gray-900 mb-4">
-                Need Help?
+                ヘルプが必要ですか？
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <p>
-                  Have questions about billing or your subscription?
+                  お支払いやサブスクリプションについてご質問はありますか？
                 </p>
                 <div className="space-y-2">
                   <a
                     href="mailto:support@simplenotespro.com"
                     className="block text-blue-600 hover:text-blue-500"
                   >
-                    📧 Email Support
+                    📧 メールサポート
                   </a>
                   <a
                     href="/help"
                     className="block text-blue-600 hover:text-blue-500"
                   >
-                    📚 Help Center
+                    📚 ヘルプセンター
                   </a>
                   <a
                     href="/faq"
                     className="block text-blue-600 hover:text-blue-500"
                   >
-                    ❓ FAQ
+                    ❓ よくある質問
                   </a>
                 </div>
               </div>
@@ -160,6 +160,6 @@ export default async function BillingPage() {
 }
 
 export const metadata = {
-  title: 'Billing & Subscription - Simple Notes Pro',
-  description: 'Manage your Simple Notes Pro subscription and billing details.',
+  title: 'お支払い・サブスクリプション - Simple Notes Pro',
+  description: 'Simple Notes Proのサブスクリプションとお支払い情報を管理します。',
 }

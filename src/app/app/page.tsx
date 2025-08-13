@@ -28,7 +28,7 @@ export default async function AppPage() {
             <div>
               <h1 className="text-xl font-semibold text-gray-900">Simple Notes Pro</h1>
               <p className="text-sm text-gray-500">
-                {plan === 'pro' ? '✨ Pro Plan' : '📝 Free Plan'} - {noteCount} {noteCount === 1 ? 'note' : 'notes'}
+                {plan === 'pro' ? '✨ プロプラン' : '📝 無料プラン'} - {noteCount} {noteCount === 1 ? '件のメモ' : '件のメモ'}
               </p>
             </div>
             <div className="flex items-center space-x-4">
@@ -36,7 +36,7 @@ export default async function AppPage() {
                 href="/billing"
                 className="text-sm text-blue-600 hover:text-blue-500"
               >
-                Billing
+                お支払い
               </Link>
               <span className="text-sm text-gray-600">
                 {user.email}
@@ -63,9 +63,9 @@ export default async function AppPage() {
           {/* Header Actions */}
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Your Notes</h2>
+              <h2 className="text-2xl font-bold text-gray-900">あなたのメモ</h2>
               <p className="text-gray-600">
-                Organize your thoughts and ideas
+                アイデアや考えを整理しましょう
               </p>
             </div>
             <div className="space-x-3">
@@ -74,7 +74,7 @@ export default async function AppPage() {
                   href="/billing"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
-                  Upgrade to Add More
+                  プロにアップグレード
                 </Link>
               ) : (
                 <Link
@@ -84,7 +84,7 @@ export default async function AppPage() {
                   <svg className="-ml-1 mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
-                  New Note
+                  新しいメモ
                 </Link>
               )}
             </div>

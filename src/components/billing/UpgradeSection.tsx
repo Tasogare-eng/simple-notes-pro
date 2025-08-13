@@ -31,7 +31,7 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
         window.location.href = result.url
       } else {
         console.log('No error and no URL in result:', result)
-        setError('No checkout URL received')
+        setError('決済URLを取得できませんでした')
       }
     } catch (error) {
       console.error('Exception in handleUpgrade:', error)
@@ -45,7 +45,7 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
         console.log('Error has digest:', (error as { digest?: string }).digest)
       }
       
-      setError(`An unexpected error occurred: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      setError(`予期しないエラーが発生しました: ${error instanceof Error ? error.message : '不明なエラー'}`)
     } finally {
       console.log('handleUpgrade finished')
       setIsLoading(false)
@@ -60,10 +60,10 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
       <div className="px-6 py-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Upgrade to Pro
+            プロにアップグレード
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            Unlock unlimited notes and premium features
+            無制限のメモとプレミアム機能を解放
           </p>
           
           {isNearLimit && (
@@ -77,8 +77,8 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
                 <div className="ml-3">
                   <p className="text-sm text-yellow-800">
                     {remainingNotes === 0 
-                      ? "You've reached your note limit! Upgrade to continue creating notes."
-                      : `Only ${remainingNotes} note${remainingNotes === 1 ? '' : 's'} remaining in your Free plan.`
+                      ? "メモの上限に達しました！メモを継続作成するにはアップグレードしてください。"
+                      : `無料プランではあと${remainingNotes}件のメモしか作成できません。`
                     }
                   </p>
                 </div>
@@ -89,10 +89,10 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 text-white mb-8">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">¥500</div>
-              <div className="text-blue-100">per month</div>
+              <div className="text-blue-100">月額</div>
               <div className="mt-4">
                 <span className="bg-blue-500 bg-opacity-50 px-3 py-1 rounded-full text-sm">
-                  Most Popular
+                  人気No.1
                 </span>
               </div>
             </div>
@@ -115,15 +115,15 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Processing...
+                処理中...
               </>
             ) : (
-              'Upgrade to Pro - ¥500/month'
+              'プロにアップグレード - 月額¥500'
             )}
           </button>
 
           <p className="text-xs text-gray-500 mt-3">
-            Cancel anytime. No setup fees. Secure payment with Stripe.
+いつでもキャンセル可能。初期費用なし。Stripeで安全な決済。
           </p>
         </div>
 
@@ -132,23 +132,23 @@ export default function UpgradeSection({ noteCount }: UpgradeSectionProps) {
         </div>
 
         <div className="mt-8 bg-gray-50 rounded-lg p-6">
-          <h3 className="font-semibold text-gray-900 mb-3">Why upgrade now?</h3>
+          <h3 className="font-semibold text-gray-900 mb-3">今アップグレードする理由</h3>
           <ul className="text-sm text-gray-700 space-y-2">
             <li className="flex items-start">
               <span className="text-green-500 mr-2">•</span>
-              Never worry about note limits again
+              メモの上限を気にする必要がなくなります
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">•</span>
-              Get priority support when you need help
+              サポートが必要な時に優先サポートを受けられます
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">•</span>
-              Support continued development of new features
+              新機能の継続的な開発を支援できます
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">•</span>
-              30-day money-back guarantee
+              30日間返金保証
             </li>
           </ul>
         </div>
