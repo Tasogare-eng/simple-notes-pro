@@ -22,7 +22,7 @@ export async function createNoteAction(formData: FormData) {
   const result = noteSchema.safeParse({ title, content })
   if (!result.success) {
     return {
-      error: result.error.errors[0].message,
+      error: result.error.issues[0].message,
     }
   }
 
@@ -62,7 +62,7 @@ export async function updateNoteAction(noteId: string, formData: FormData) {
   const result = noteSchema.safeParse({ title, content })
   if (!result.success) {
     return {
-      error: result.error.errors[0].message,
+      error: result.error.issues[0].message,
     }
   }
 

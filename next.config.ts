@@ -10,12 +10,6 @@ const nextConfig: NextConfig = {
     unoptimized: process.env.DOCKER_BUILD === 'true'
   },
   
-  // 実験的機能
-  experimental: {
-    // サーバーサイドでのスタンドアロン出力を有効化（Docker用）
-    outputFileTracingRoot: process.env.DOCKER_BUILD === 'true' ? process.cwd() : undefined,
-  },
-  
   // Webpack設定
   webpack: (config, { isServer }) => {
     // サーバーサイドでのpolyfillを追加
