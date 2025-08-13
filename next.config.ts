@@ -1,21 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Docker環境での本番ビルド用設定
-  output: 'standalone',
+  // Docker環境でのみstandalone出力を有効化
+  output: process.env.DOCKER_BUILD === 'true' ? 'standalone' : undefined,
   
-  // 画像最適化をカスタム設定（必要に応じて）
+  // 画像最適化設定
   images: {
-    unoptimized: true
+    // Vercelでは最適化を有効、Dockerでは無効
+    unoptimized: process.env.DOCKER_BUILD === 'true'
   },
-  
-  // 静的ファイルの提供設定
-  assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
   
   // 実験的機能
   experimental: {
-    // サーバーサイドでのスタンドアロン出力を有効化
-    outputFileTracingRoot: process.cwd(),
+    // サーバーサイドでのスタンドアロン出力を有効化（Docker用）
+    outputFileTracingRoot: process.env.DOCKER_BUILD === 'true' ? process.cwd() : undefined,
+  },
+  
+  // Webpack設定
+  webpack: (config, { isServer }) => {
+    // サーバーサイドでのpolyfillを追加
+    if (isServer) {
+      config.externals = [...(config.externals || []), 'stripe']
+    }
+    return config
   },
 };
 

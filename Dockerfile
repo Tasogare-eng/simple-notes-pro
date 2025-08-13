@@ -13,6 +13,9 @@ RUN npm ci --only=production && npm cache clean --force
 # ソースコードをコピー
 COPY . .
 
+# Docker環境でのビルドを明示
+ENV DOCKER_BUILD=true
+
 # Next.jsアプリをビルド
 RUN npm run build
 
